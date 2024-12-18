@@ -17,6 +17,8 @@ public class WithdrawCallback {
     private String tag;
     @SerializedName("amount")
     private BigDecimal amount;
+    @SerializedName("service_fee")
+    private BigDecimal serviceFee;
     @SerializedName("status")
     private String status;
 
@@ -66,6 +68,14 @@ public class WithdrawCallback {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public BigDecimal getServiceFee() {
+        return serviceFee;
+    }
+
+    public void setServiceFee(BigDecimal serviceFee) {
+        this.serviceFee = serviceFee;
     }
 
     public String getStatus() {
