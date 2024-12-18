@@ -25,6 +25,8 @@ public class WithdrawGetDetailResp {
     private BigDecimal exchangeRate;
     @SerializedName("amount")
     private BigDecimal amount;
+    @SerializedName("service_fee")
+    private BigDecimal serviceFee;
     @SerializedName("order_id")
     private String orderId;
     @SerializedName("status")
@@ -33,7 +35,7 @@ public class WithdrawGetDetailResp {
     private String statusDesc;
 
 
-    public WithdrawGetDetailResp(String sourceId, int chainId, int coinId, String address, String tag, String hash, BigDecimal fiatAmount, String symbol, BigDecimal exchangeRate, BigDecimal amount, String orderId, byte status, String statusDesc ) {
+    public WithdrawGetDetailResp(String sourceId, int chainId, int coinId, String address, String tag, String hash, BigDecimal fiatAmount, String symbol, BigDecimal exchangeRate, BigDecimal amount, BigDecimal serviceFee, String orderId, byte status, String statusDesc ) {
         this.sourceId = sourceId;
         this.chainId = chainId;
         this.coinId = coinId;
@@ -44,6 +46,7 @@ public class WithdrawGetDetailResp {
         this.symbol = symbol;
         this.exchangeRate = exchangeRate;
         this.amount = amount;
+        this.serviceFee = serviceFee;
         this.orderId = orderId;
         this.status = status;
         this.statusDesc = statusDesc;
@@ -81,6 +84,22 @@ public class WithdrawGetDetailResp {
         this.address = address;
     }
 
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
     public BigDecimal getFiatAmount() {
         return fiatAmount;
     }
@@ -111,6 +130,14 @@ public class WithdrawGetDetailResp {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public BigDecimal getServiceFee() {
+        return serviceFee;
+    }
+
+    public void setServiceFee(BigDecimal serviceFee) {
+        this.serviceFee = serviceFee;
     }
 
     public String getOrderId() {
