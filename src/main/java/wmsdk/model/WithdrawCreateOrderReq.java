@@ -17,6 +17,8 @@ public class WithdrawCreateOrderReq {
     private String tag;
     @SerializedName("amount")
     private BigDecimal amount;
+    @SerializedName("callback_url")
+    private String callbackUrl;
 
     public WithdrawCreateOrderReq(String sourceId, int chainId, int coinId, String address, String tag, BigDecimal amount) {
         this.sourceId = sourceId;
@@ -73,5 +75,13 @@ public class WithdrawCreateOrderReq {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
     }
 }

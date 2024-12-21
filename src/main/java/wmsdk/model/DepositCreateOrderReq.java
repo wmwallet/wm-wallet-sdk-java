@@ -15,6 +15,8 @@ public class DepositCreateOrderReq {
     private BigDecimal fiatAmount;
     @SerializedName("symbol")
     private String symbol;
+    @SerializedName("callback_url")
+    private String callbackUrl;
 
     public DepositCreateOrderReq(String sourceId, int chainId, int coinId, BigDecimal fiatAmount, String symbol) {
         this.sourceId = sourceId;
@@ -62,5 +64,13 @@ public class DepositCreateOrderReq {
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
     }
 }
