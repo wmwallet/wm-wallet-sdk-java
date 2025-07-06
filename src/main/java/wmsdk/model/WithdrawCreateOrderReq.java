@@ -15,17 +15,26 @@ public class WithdrawCreateOrderReq {
     private String address;
     @SerializedName("tag")
     private String tag;
+    @SerializedName("fiat_amount")
+    private BigDecimal fiatAmount;
+    @SerializedName("symbol")
+    private String symbol;
+    @SerializedName("exchange_rate")
+    private BigDecimal exchangeRate;
     @SerializedName("amount")
     private BigDecimal amount;
     @SerializedName("callback_url")
     private String callbackUrl;
 
-    public WithdrawCreateOrderReq(String sourceId, int chainId, int coinId, String address, String tag, BigDecimal amount) {
+    public WithdrawCreateOrderReq(String sourceId, int chainId, int coinId, String address, String tag,  BigDecimal fiatAmount, String symbol, BigDecimal exchangeRate, BigDecimal amount) {
         this.sourceId = sourceId;
         this.chainId = chainId;
         this.coinId = coinId;
         this.address = address;
         this.tag = tag;
+        this.fiatAmount = fiatAmount;
+        this.symbol = symbol;
+        this.exchangeRate = exchangeRate;
         this.amount = amount;
     }
 
@@ -67,6 +76,30 @@ public class WithdrawCreateOrderReq {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public BigDecimal getFiatAmount() {
+        return fiatAmount;
+    }
+
+    public void setFiatAmount(BigDecimal fiatAmount) {
+        this.fiatAmount = fiatAmount;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public BigDecimal getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public void setExchangeRate(BigDecimal exchangeRate) {
+        this.exchangeRate = exchangeRate;
     }
 
     public BigDecimal getAmount() {

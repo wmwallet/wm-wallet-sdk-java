@@ -32,9 +32,11 @@ public class Example {
         //1、test create order
         int chainId = 1;
         int coinId = 1;
-        BigDecimal flatAmount = new BigDecimal("4");
+        BigDecimal flatAmount = new BigDecimal("7.18");
         String symbol = "USDT/CNY";
-        DepositCreateOrderReq depositCreateOrderReq = new DepositCreateOrderReq(sourceId, chainId, coinId, flatAmount, symbol);
+        BigDecimal exchange = new BigDecimal("7.18");
+        BigDecimal amount = new BigDecimal("1");
+        DepositCreateOrderReq depositCreateOrderReq = new DepositCreateOrderReq(sourceId, chainId, coinId, flatAmount, symbol, exchange, amount);
         Resp<DepositCreateOrderResp> createResp = deposit.Create(depositCreateOrderReq);
         System.out.println(createResp.getCode());
         System.out.println(createResp.getMsg());
@@ -67,7 +69,11 @@ public class Example {
         String sourceId = generateUUID();
         String withdrawAddress = "";
         String withdrawTag = "";
-        WithdrawCreateOrderReq withdrawCreateOrderReq = new WithdrawCreateOrderReq(sourceId, 1, 1, withdrawAddress, withdrawTag, new BigDecimal("2"));
+        BigDecimal flatAmount = new BigDecimal("7.18");
+        String symbol = "USDT/CNY";
+        BigDecimal exchange = new BigDecimal("7.18");
+        BigDecimal amount = new BigDecimal("1");
+        WithdrawCreateOrderReq withdrawCreateOrderReq = new WithdrawCreateOrderReq(sourceId, 1, 1, withdrawAddress, withdrawTag, flatAmount, symbol, exchange, amount);
         Resp<WithdrawCreateOrderResp> createResp = withdraw.Create(withdrawCreateOrderReq);
         System.out.println(createResp.getCode());
         System.out.println(createResp.getMsg());
