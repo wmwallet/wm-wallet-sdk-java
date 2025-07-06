@@ -26,6 +26,18 @@ public class WithdrawCreateOrderReq {
     @SerializedName("callback_url")
     private String callbackUrl;
 
+    public WithdrawCreateOrderReq(String sourceId, int chainId, int coinId, String address, String tag, BigDecimal amount) {
+        this.sourceId = sourceId;
+        this.chainId = chainId;
+        this.coinId = coinId;
+        this.address = address;
+        this.tag = tag;
+        this.fiatAmount = BigDecimal.ZERO;
+        this.symbol = "";
+        this.exchangeRate = BigDecimal.ZERO;
+        this.amount = amount;
+    }
+
     public WithdrawCreateOrderReq(String sourceId, int chainId, int coinId, String address, String tag,  BigDecimal fiatAmount, String symbol, BigDecimal exchangeRate, BigDecimal amount) {
         this.sourceId = sourceId;
         this.chainId = chainId;

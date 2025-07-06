@@ -34,6 +34,42 @@ public class Example {
         int coinId = 1;
         BigDecimal flatAmount = new BigDecimal("7.18");
         String symbol = "USDT/CNY";
+        DepositCreateOrderReq depositCreateOrderReq = new DepositCreateOrderReq(sourceId, chainId, coinId, flatAmount, symbol);
+        Resp<DepositCreateOrderResp> createResp = deposit.Create(depositCreateOrderReq);
+        System.out.println(createResp.getCode());
+        System.out.println(createResp.getMsg());
+        System.out.println(createResp.getData());
+
+        // sleep 5 second
+        Thread.sleep(5000); // 参数单位为毫秒
+
+        // 2、test get detail
+        DepositGetDetailReq depositGetDetailReq = new DepositGetDetailReq(sourceId);
+        Resp<DepositGetDetailResp> detailResp = deposit.Detail(depositGetDetailReq);
+        System.out.println(detailResp.getCode());
+        System.out.println(detailResp.getMsg());
+        System.out.println(detailResp.getData());
+
+        // sleep 5 second
+        Thread.sleep(5000); // 参数单位为毫秒
+
+        // 3、test cancel order
+//        DepositCancelOrderReq depositCancelOrderReq = new DepositCancelOrderReq(sourceId);
+//        Resp<DepositCancelOrderResp> cancelResp = deposit.Cancel(depositCancelOrderReq);
+//        System.out.println(cancelResp.getCode());
+//        System.out.println(cancelResp.getMsg());
+//        System.out.println(cancelResp.getData());
+    }
+
+    public void depositControlExchangeRate() throws Exception {
+        Deposit deposit = new Deposit(wm);
+        String sourceId = generateUUID();
+
+        //1、test create order
+        int chainId = 1;
+        int coinId = 1;
+        BigDecimal flatAmount = new BigDecimal("7.18");
+        String symbol = "USDT/CNY";
         BigDecimal exchange = new BigDecimal("7.18");
         BigDecimal amount = new BigDecimal("1");
         DepositCreateOrderReq depositCreateOrderReq = new DepositCreateOrderReq(sourceId, chainId, coinId, flatAmount, symbol, exchange, amount);
@@ -64,6 +100,30 @@ public class Example {
     }
 
     public void withdraw() throws Exception {
+        Withdraw withdraw = new Withdraw(wm);
+        //1、test create order
+        String sourceId = generateUUID();
+        String withdrawAddress = "";
+        String withdrawTag = "";
+        BigDecimal amount = new BigDecimal("1");
+        WithdrawCreateOrderReq withdrawCreateOrderReq = new WithdrawCreateOrderReq(sourceId, 1, 1, withdrawAddress, withdrawTag, amount);
+        Resp<WithdrawCreateOrderResp> createResp = withdraw.Create(withdrawCreateOrderReq);
+        System.out.println(createResp.getCode());
+        System.out.println(createResp.getMsg());
+        System.out.println(createResp.getData());
+
+        // sleep 5 second
+        Thread.sleep(5000); // 参数单位为毫秒
+
+        //2、test get detail
+        WithdrawGetDetailReq withdrawGetDetailReq = new WithdrawGetDetailReq(sourceId);
+        Resp<WithdrawGetDetailResp> detailResp = withdraw.Detail(withdrawGetDetailReq);
+        System.out.println(detailResp.getCode());
+        System.out.println(detailResp.getMsg());
+        System.out.println(detailResp.getData());
+    }
+
+    public void withdrawControlExchangeRate() throws Exception {
         Withdraw withdraw = new Withdraw(wm);
         //1、test create order
         String sourceId = generateUUID();

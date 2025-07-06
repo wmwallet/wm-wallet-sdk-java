@@ -22,6 +22,14 @@ public class DepositCreateOrderReq {
     @SerializedName("callback_url")
     private String callbackUrl;
 
+    public DepositCreateOrderReq(String sourceId, int chainId, int coinId, BigDecimal fiatAmount, String symbol) {
+        this.sourceId = sourceId;
+        this.chainId = chainId;
+        this.coinId = coinId;
+        this.fiatAmount = fiatAmount;
+        this.symbol = symbol;
+    }
+
     public DepositCreateOrderReq(String sourceId, int chainId, int coinId, BigDecimal fiatAmount, String symbol, BigDecimal exchangeRate, BigDecimal amount) {
         this.sourceId = sourceId;
         this.chainId = chainId;
